@@ -2,7 +2,7 @@
 const fs = require("node:fs"); // fs = file system
 
 // readFileSync() reads the entire contents of a file while blocking execution until the operation completes
-const API_KEY = fs.readFileSync("apikey.txt", "utf8").trim(); // utf8 format, both ends trimmed for white space
+const API_KEY = fs.readFileSync("backend/apikey.txt", "utf8").trim(); // utf8 format, both ends trimmed for white space
 
 fetch("https://api.start.gg/gql/alpha", { // fetch(string|URL|address, requestInit)
   method: "POST",
