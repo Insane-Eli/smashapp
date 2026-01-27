@@ -1,5 +1,3 @@
-import {fetchTournamentInfo} from '../../backend/old js files/fetch-tournament-data';
-
 const input = document.getElementById("playerTag");
 
 input.addEventListener("keydown", function(e) {
