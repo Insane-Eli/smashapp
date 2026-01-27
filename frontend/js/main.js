@@ -1,4 +1,4 @@
-import {fetchTournamentInfo} from '../../backend/fetch-tournament-data';
+import {fetchTournamentInfo} from '../../backend/old js files/fetch-tournament-data';
 
 const input = document.getElementById("playerTag");
 
