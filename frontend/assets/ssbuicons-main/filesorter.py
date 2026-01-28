@@ -2,8 +2,8 @@ import os
 import re
 import shutil
 
-# the repo i got the stock icons from had every single png in one folder so i just had chatgpt write this script to sort them.
-# just for the record: i didn't write any of this code, just commented for my own understanding
+# the repo i got the stock icons from had every single png in one folder, so i just had chatgpt write this script to sort them.
+# in other words: i didn't write any of this code, just commented for my own understanding
 
 base_dir = "." # whatever folder the script is in
 
@@ -16,8 +16,8 @@ for filename in os.listdir(base_dir): # for every file inside of the folder
     # regexplanation
     # r(
     #    . : match ANY characters you can find, (except newline) ('M')
-    #    * : at least 0 or more times ('Mario')
-    #    ? : but be lazy with it: try with the fewest amount characters first, and if the rest of the regex fails THEN we try one more character
+    #    * : at least 0 or more times
+    #    ? : but be lazy with it: try with the fewest amount characters first, try another character ONLY if the rest of the regex fails
     # )(
     #    \d : match one digit 0-9 ('1')
     #    + : do this one or more times (get all of the trailing numbers)

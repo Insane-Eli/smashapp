@@ -4,18 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Home</title>
+    <link rel="icon" type="image/png" href="frontend\assets\rob-icons\ice.png">
     <link rel="stylesheet" href="frontend/css/styles.css" />
   </head>
-
+    <script type="module" src="frontend/js/main.js"></script>
   <body>
     <div class="container">
       <h1>start.gg API</h1>
-      <input type="text" id="playerTag" placeholder="Enter tournament name:" />
+      <input type="text" id="search" placeholder="Enter tournament name:" />
       <button onclick="getTournamentInfo()">Search</button>
       <pre id="output"></pre>
     </div>
-
-    <script type="module" src="frontend/js/main.js"></script>
-
   </body>
 </html>
