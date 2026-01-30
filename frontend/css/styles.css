@@ -1,7 +1,9 @@
 :root {
-  --gc1: rgba(0, 0, 0, 0.8); /*gradient colors*/
-  --gc2: rgba(76, 91, 76, 0.4);
-  --gc3: rgba(0, 0, 0, 0.4);
+  --gc1: rgba(0, 0, 0); /*gradient colors*/
+  --gc2: rgba(71, 69, 135, 0.6);
+  --gc3: rgba(0, 0, 0);
+  --muralwidth: 3671px;
+  --muralheight: 680px;
 }
 body {
     padding: 20px;
@@ -13,14 +15,14 @@ body {
 }
 .bg{
     position: fixed;
-    inset: -5%;
-    background-image: url('../assets/mural.png');
-    background-position: center;
-    background-size: cover;
-    transform-origin: center;
-    background-repeat: no-repeat;
+    inset: 0%;
+    background-image: url('../assets/looping-mural.jpg');
+    background-size: var(--muralwidth) var(--muralheight);
+    background-repeat: repeat-x;
     z-index: -1;
-    animation: pan 300s linear infinite;
+    width: 200%;
+    animation: scroll 45s linear infinite;
+    zoom: 1.4;
 
 }.bg::after { /*bg overlay*/
     content: "";
@@ -30,14 +32,11 @@ body {
     pointer-events: none;
 }
 
-@keyframes pan {
-    from {
-        background-position: left center;
-    }
-    to {
-        background-position: right center;
-    }
+@keyframes scroll {
+  from { background-position-x: var(--muralwidth); }
+  to { background-position-x: 0 }
 }
+
 h1 {
     text-align: center;
     color: #333;
