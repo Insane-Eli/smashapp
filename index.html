@@ -4,17 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Home</title>
-    <link rel="icon" type="image/png" href="frontend\assets\rob-icons\ice.png">
+    <link rel="icon" type="image/png" href="frontend/assets/favicons/ice.png">
     <link rel="stylesheet" href="frontend/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class='bg'></div>
     <div class="container">
-      <h1>start.gg API</h1>
-      <input type="text" id="search" placeholder="Enter tournament name:" />
-      <button onclick="getTournamentInfo()">Search</button>
+      <h1>smash app</h1>
+      <input type="text" id="search" autocomplete = 'off' placeholder="Enter tournament name:" />
+      <button id="search-button">Search</button>
       <pre id="output"></pre>
-      <script type="module" src="frontend/js/main.js"></script>
     </div>
+      <script type="module" src="frontend/js/main.js"></script>
   </body>
 </html>

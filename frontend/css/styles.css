@@ -1,35 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
 :root {
-  --gc1: rgba(0, 0, 0);
-  --gc2: rgba(71, 69, 135, 0.6);
-  --gc3: rgba(0, 0, 0);
-  --muralwidth: 5507px;
-  --muralheight: 1020px;
-  --zoom: 1.0;
+  --gc1: rgba(0, 0, 0, 1);
+  --gc2: rgba(0, 0, 0, 0.4);
+  --gc3: rgba(0, 0, 0, 1);
+  --muralwidth: 6000px;
+  --muralheight: 1111px;
+  --panningspeed: 150s;
+  --zoom: .86;
+  --rot: 0deg;
 }
 body {
+    display: flex;
     padding: 20px;
     margin: 0;
     width: 100%;
-    height: 100%;
-    font-family: Arial, sans-serif;
+    height: 100vh;
+    font-family: 'Bebas Neue', sans-serif;
     overflow-x: hidden;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center */
 }
 .bg{
+    
     position: fixed;
     inset: 0%;
-    background-image: url('../assets/looping-mural_optimized.png'); /* upscaled w/ waifu2x */
-    background-size: var(--muralwidth) var(--muralheight);
+    background-image: url('../assets/murals/dlc-mural-high-quality-low-scale.jpg');
     background-repeat: repeat-x;
     z-index: -1;
+    background-size: var(--muralwidth) var(--muralheight);
     width: 200%;
-    animation: scroll 120s linear infinite;
-    zoom: var(--zoom); /* best fix i could find for the loop chopping was just to return the wallpaper to native resolution, move it by a set amount of pixels, and then zoom in */
+    animation: scroll var(--panningspeed) linear infinite;
+    zoom: var(--zoom);
 
-}.bg::after { /*bg overlay*/
+}.bg:after { /*bg overlay*/
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(0deg,var(--gc1), var(--gc2), var(--gc3));
+    background: linear-gradient(var(--rot),var(--gc3), var(--gc2), var(--gc1));
     pointer-events: none;
 }
 
@@ -38,41 +47,62 @@ body {
   to { background-position-x: 0 }
 }
 
-h1 {
-    text-align: center;
-    color: #333;
+h1 { /* title */
+    text-align: left;
+    color: #f6f6f6;
 }
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+
+    width: 600px;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #000000;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 5);
 }
-input[type="text"] {
+
+
+input[type="text"] { /*search box*/
+    outline: none;
+    background-color: #111111;
+    color: #ffffff;
     width: 80%;
     padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    margin: 0px 0;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
+    transition: background-color 0.2s ease;
+} input[type="text"]:focus { 
+    background-color: #1d1d1d;
+}
+
+
+button {
+    padding: 10px 15px;
+    background: linear-gradient(70deg, rgb(0, 98, 255), #0091ff);
+    color: rgb(173, 255, 233);
+    font-size: 16px;
+    font:800;
+    border: none;
     cursor: pointer;
+    transition: 0.2s ease;
+    margin-left: 2%;
 }
 button:hover {
-    background-color: #45a049;
+    background: linear-gradient(70deg, rgb(0, 255, 208), #00ffff);
+    color: rgb(0, 0, 0);
+    transform: scale(1.05);
+}
+button:active {
+    transition: 0s;
+    transform: scale(.98);
 }
 pre {
-    background-color: #f4f4f4;
+    background-color: #0d0d0d;
     padding: 15px;
-    border-radius: 5px;
     overflow-x: auto;
+}
+
+* {
+    font-family: 'Bebas Neue', sans-serif;
+    border-radius: 2px;
 }

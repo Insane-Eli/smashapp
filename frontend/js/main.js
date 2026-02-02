@@ -1,6 +1,6 @@
 const input = document.getElementById("playerTag");
 const output = document.getElementById("output");
-const button = document.getElementById("search");
+const button = document.getElementById("search-button");
 
 button.addEventListener("click", getTournamentInfo);
 
@@ -11,6 +11,8 @@ input.addEventListener("keydown", function(e) {
 });
 
 async function getTournamentInfo() {
+
+  console.log("tournament");
   const slug = input.value.trim();
   if (!slug) return;
 
@@ -25,6 +27,23 @@ async function getTournamentInfo() {
   }
 }
 
+// bg scroller
+/*
+document.addEventListener("DOMContentLoaded", () => {
+  const bg = document.querySelector('.bg');
+  const muralWidth = 6000;
+  const panSpeed = 30; // pixels/sec
 
+  function updateBg () {
+  const seconds = Date.now() / 1000;   // makes the bg start relative to the time (so that refreshing doesn't make it chop & i dont have to do some weird position stuff)
+  const x = -(seconds * panSpeed) % muralWidth;
+  bg.style.backgroundPosition = `${x}px 0`;
+
+  requestAnimationFrame(updateBg);
+  }
+
+  updateBg();
+});
+*/
 
 
