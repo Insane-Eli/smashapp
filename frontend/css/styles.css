@@ -1,9 +1,10 @@
 :root {
-  --gc1: rgba(0, 0, 0); /*gradient colors*/
+  --gc1: rgba(0, 0, 0);
   --gc2: rgba(71, 69, 135, 0.6);
   --gc3: rgba(0, 0, 0);
-  --muralwidth: 3671px;
-  --muralheight: 680px;
+  --muralwidth: 5507px;
+  --muralheight: 1020px;
+  --zoom: 1.0;
 }
 body {
     padding: 20px;
@@ -16,19 +17,19 @@ body {
 .bg{
     position: fixed;
     inset: 0%;
-    background-image: url('../assets/looping-mural.jpg');
+    background-image: url('../assets/looping-mural_optimized.png'); /* upscaled w/ waifu2x */
     background-size: var(--muralwidth) var(--muralheight);
     background-repeat: repeat-x;
     z-index: -1;
     width: 200%;
-    animation: scroll 45s linear infinite;
-    zoom: 1.4;
+    animation: scroll 120s linear infinite;
+    zoom: var(--zoom); /* best fix i could find for the loop chopping was just to return the wallpaper to native resolution, move it by a set amount of pixels, and then zoom in */
 
 }.bg::after { /*bg overlay*/
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(0deg,var(--gc1), var(--gc2), var(--gc3)); /* change color + strength */
+    background: linear-gradient(0deg,var(--gc1), var(--gc2), var(--gc3));
     pointer-events: none;
 }
 
