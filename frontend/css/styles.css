@@ -19,6 +19,7 @@ body {
     height: 100vh;
     font-family: 'Bebas Neue', sans-serif;
     overflow-x: hidden;
+    overflow-y: hidden;
     justify-content: center; /* horizontal center */
     align-items: center;     /* vertical center */
 }
@@ -105,4 +106,6 @@ pre {
 * {
     font-family: 'Bebas Neue', sans-serif;
     border-radius: 2px;
+    letter-spacing: .01em;
+    word-spacing: .03em;
 }
