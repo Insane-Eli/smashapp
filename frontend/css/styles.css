@@ -27,7 +27,7 @@ body {
     
     position: fixed;
     inset: 0%;
-    background-image: url('../assets/murals/dlc-mural-high-quality.jpg');
+    background-image: url('../assets/murals/dlc-mural-medium-quality.png');
     background-repeat: repeat-x;
     z-index: -1;
     background-size: var(--muralwidth) var(--muralheight);
