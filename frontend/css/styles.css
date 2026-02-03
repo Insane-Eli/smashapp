@@ -8,7 +8,7 @@
   --muralwidth: 3000px;
   --muralheight: 555px;
   --panningspeed: 150s;
-  --zoom: 1.8;
+  --zoom: 1.72;
   --rot: 0deg;
 }
 body {
@@ -27,7 +27,7 @@ body {
     
     position: fixed;
     inset: 0%;
-    background-image: url('../assets/murals/dlc-mural-high-quality-lowest-scale.png');
+    background-image: url('../assets/murals/dlc-mural-high-quality.jpg');
     background-repeat: repeat-x;
     z-index: -1;
     background-size: var(--muralwidth) var(--muralheight);
