@@ -2,13 +2,13 @@
 
 
 :root {
-  --gc1: rgba(0, 0, 0, 1);
+  --gc1: rgba(0, 0, 0, .9);
   --gc2: rgba(0, 0, 0, 0.4);
-  --gc3: rgba(0, 0, 0, 1);
-  --muralwidth: 6000px;
-  --muralheight: 1111px;
+  --gc3: rgba(0, 0, 0, .9);
+  --muralwidth: 3000px;
+  --muralheight: 555px;
   --panningspeed: 150s;
-  --zoom: .86;
+  --zoom: 1.8;
   --rot: 0deg;
 }
 body {
@@ -26,7 +26,7 @@ body {
     
     position: fixed;
     inset: 0%;
-    background-image: url('../assets/murals/dlc-mural-high-quality-low-scale.jpg');
+    background-image: url('../assets/murals/dlc-mural-high-quality-lowest-scale.png');
     background-repeat: repeat-x;
     z-index: -1;
     background-size: var(--muralwidth) var(--muralheight);
