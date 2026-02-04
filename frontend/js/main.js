@@ -1,11 +1,13 @@
-const input = document.getElementById("playerTag");
+const input = document.getElementById("tournamentSlug");
 const output = document.getElementById("output");
-const button = document.getElementById("search-button");
+const button = document.getElementById("searchButton");
 
-button.addEventListener("click", getTournamentInfo);
+button.addEventListener("click", () =>
+  {if (input != null) getTournamentInfo();}
+);
 
 input.addEventListener("keydown", function(e) {
-  if (e.key === "Enter") {
+  if (e.key === "Enter" && input != null) {
     getTournamentInfo();
   }
 });
@@ -19,7 +21,7 @@ async function getTournamentInfo() {
   output.textContent = "loading..";
 
   try{
-  const res = await fetch(`http://localhost:3000/api/tournament?slug=${slug}`);
+  const res = await fetch(`http://localhost:3000/api/tournament?slug=${input.value.trim()}`);
   const data = await res.json();
   output.textContent = JSON.stringify(data, null, 2);
   } catch (err){
@@ -27,7 +29,7 @@ async function getTournamentInfo() {
   }
 }
 
-// bg scroller
+// bg scroller (busted)
 /*
 document.addEventListener("DOMContentLoaded", () => {
   const bg = document.querySelector('.bg');

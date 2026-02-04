@@ -35,7 +35,8 @@ body {
     animation: scroll var(--panningspeed) linear infinite;
     zoom: var(--zoom);
 
-}.bg:after { /*bg overlay*/
+}
+.bg:after { /*bg overlay*/
     content: "";
     position: absolute;
     inset: 0;
@@ -72,7 +73,8 @@ input[type="text"] { /*search box*/
     font-size: 16px;
     border: none;
     transition: background-color 0.2s ease;
-} input[type="text"]:focus { 
+} 
+input[type="text"]:focus { 
     background-color: #1d1d1d;
 }
 
@@ -103,9 +105,23 @@ pre {
     overflow-x: auto;
 }
 
+#output {
+  margin-top: 1rem;
+  padding: 12px;
+  max-width: 100%;
+  background: #0e0e0e;
+  color: #747474;
+  font-family: monospace;
+  font-size: 14px;
+  white-space: pre-wrap;   /* wraps long lines */
+  overflow-x: auto;
+  border-radius: 6px;
+}
+
+
 * {
     font-family: 'Bebas Neue', sans-serif;
     border-radius: 2px;
-    letter-spacing: .01em;
+    letter-spacing: 0em;
     word-spacing: .03em;
 }

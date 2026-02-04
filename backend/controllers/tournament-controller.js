@@ -1,11 +1,63 @@
+import fs from "fs";
+const API_KEY = fs.readFileSync(".env", "utf8").trim();
+
 export async function getTournament(req, res) {
+
   const { slug } = req.query;
 
-  const data = {
-    name: slug || "genesis-x",
-    state: "1",
-    startAt: 1234567890
-  };
+  try{
+    const response = await fetch("https://api.start.gg/gql/alpha", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${API_KEY}`,
+      },
+      body: JSON.stringify({
+        query: `
+          query {
+            tournament(slug: "tournament/${slug}") {
+              name
+              startAt
+              state
+            }
+          }
+        `,
+      }),
+    });
 
+  if (!response.ok) {
+    const text = await response.text();
+    console.error("start.gg api error: ", text);
+    return res.status(response.status).json({ error: "start.gg api error", details: text });
+  }
+
+  const data = await response.json();
+  console.log(JSON.stringify(data, null, 2));
   res.json(data);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "fetch failed" });
+  }
 }
+
+/*
+fetch("https://api.start.gg/gql/alpha", { // fetch(string|URL|address, requestInit)
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${API_KEY}`,
+  },
+  body: JSON.stringify({
+    query: `
+      query {
+        tournament(slug: "tournament/genesis-x") {
+          name
+          startAt
+          state
+        }
+      }
+    `,
+  }),
+})
+*/
