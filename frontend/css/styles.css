@@ -1,15 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+* {
+    font-family: 'Bebas Neue', sans-serif;
+    border-radius: 2px;
+    /*
+    letter-spacing: 0em;
+    word-spacing: .03em;
+    */
+}
 
 :root {
   --gc1: rgba(0, 0, 0, .9);
-  --gc2: rgba(0, 0, 0, 0.4);
-  --gc3: rgba(0, 0, 0, .9);
+  --gc2: rgba(0, 0, 0, 0.6);
+  --gc3: rgba(255, 0, 208, 0.8);
+  --gc4: rgba(51, 0, 255, 0.8); 
   --muralwidth: 3000px;
   --muralheight: 555px;
   --panningspeed: 150s;
   --zoom: 1.72;
-  --rot: 0deg;
 }
 body {
     display: flex;
@@ -24,7 +32,6 @@ body {
     align-items: center;     /* vertical center */
 }
 .bg{
-    
     position: fixed;
     inset: 0%;
     background-image: url('../assets/murals/dlc-mural-medium-quality.png');
@@ -34,6 +41,7 @@ body {
     width: 200%;
     animation: scroll var(--panningspeed) linear infinite;
     zoom: var(--zoom);
+    filter: grayscale(80%);
 
 }
 .overlay1 { /*bg overlay*/
@@ -41,13 +49,14 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(60deg,rgba(255, 0, 157, 0.5), rgba(0, 195, 255, 0.5));
+    background: linear-gradient(60deg,var(--gc3), var(--gc4));
     pointer-events: none;
 }.overlay2 { /*bg overlay*/
+    /* filter: saturate(); */
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(var(--rot),var(--gc3), var(--gc2), var(--gc1));
+    background: linear-gradient(0deg,var(--gc1), var(--gc2), var(--gc1));
     pointer-events: none;
 }
 
@@ -59,6 +68,19 @@ body {
 h1 { /* title */
     text-align: left;
     color: #f6f6f6;
+}
+.container {
+
+    width: 600px;
+    padding: 20px;
+    background-color: #000000;
+    border: 2px solid rgb(70, 70, 70);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 5);
+}
+
+h3 { /* title */
+    text-align: left;
+    color: #b8b8b8;
 }
 .container {
 
@@ -123,12 +145,4 @@ pre {
   white-space: pre-wrap;   /* wraps long lines */
   overflow-x: auto;
   border-radius: 6px;
-}
-
-
-* {
-    font-family: 'Bebas Neue', sans-serif;
-    border-radius: 2px;
-    letter-spacing: 0em;
-    word-spacing: .03em;
 }

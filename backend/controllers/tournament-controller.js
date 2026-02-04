@@ -40,24 +40,3 @@ export async function getTournament(req, res) {
     res.status(500).json({ error: "fetch failed" });
   }
 }
-
-/*
-fetch("https://api.start.gg/gql/alpha", { // fetch(string|URL|address, requestInit)
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${API_KEY}`,
-  },
-  body: JSON.stringify({
-    query: `
-      query {
-        tournament(slug: "tournament/genesis-x") {
-          name
-          startAt
-          state
-        }
-      }
-    `,
-  }),
-})
-*/
