@@ -10,14 +10,14 @@
 }
 
 :root {
-  --gc1: rgba(0, 0, 0, .9);
-  --gc2: rgba(0, 0, 0, 0.6);
+  --gc1: rgba(0, 0, 0, 0.7);
+  --gc2: rgba(0, 0, 0, 0.2);
   --gc3: rgba(255, 0, 208, 0.8);
   --gc4: rgba(51, 0, 255, 0.8); 
   --muralwidth: 3000px;
   --muralheight: 555px;
   --panningspeed: 150s;
-  --zoom: 1.72;
+  --zoom: 1.4;
 }
 body {
     display: flex;
