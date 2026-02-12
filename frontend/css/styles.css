@@ -12,7 +12,7 @@
 :root {
   --overlaystrength: .85;
   --shadowstrength: .9;
-  --shadowcontrast: .6;
+  --shadowcontrast: .4;
   --gc1: rgba(0, 0, 0, var(--shadowstrength));
   --gc2: rgba(0, 0, 0, calc(var(--shadowstrength) - var(--shadowcontrast)));
   --gc3: rgba(255, 0, 208, var(--overlaystrength));
