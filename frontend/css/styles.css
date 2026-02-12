@@ -1,137 +1,144 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 * {
-    font-family: 'Bebas Neue', sans-serif;
-    border-radius: 2px;
-    /*
+  font-family: "Bebas Neue", sans-serif;
+  border-radius: 2px;
+  /*
     letter-spacing: 0em;
     word-spacing: .03em;
     */
 }
 
 :root {
-  --gc1: rgba(0, 0, 0, 0.7);
-  --gc2: rgba(0, 0, 0, 0.2);
-  --gc3: rgba(255, 0, 208, 0.8);
-  --gc4: rgba(51, 0, 255, 0.8); 
+  --overlaystrength: .85;
+  --shadowstrength: .9;
+  --shadowcontrast: .6;
+  --gc1: rgba(0, 0, 0, var(--shadowstrength));
+  --gc2: rgba(0, 0, 0, calc(var(--shadowstrength) - var(--shadowcontrast)));
+  --gc3: rgba(255, 0, 208, var(--overlaystrength));
+  --gc4: rgba(51, 0, 255, var(--overlaystrength));
   --muralwidth: 3000px;
   --muralheight: 555px;
-  --panningspeed: 150s;
-  --zoom: 1.4;
-}
-body {
-    display: flex;
-    padding: 20px;
-    margin: 0;
-    width: 100%;
-    height: 100vh;
-    font-family: 'Bebas Neue', sans-serif;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    justify-content: center; /* horizontal center */
-    align-items: center;     /* vertical center */
-}
-.bg{
-    position: fixed;
-    inset: 0%;
-    background-image: url('../assets/murals/dlc-mural-medium-quality.png');
-    background-repeat: repeat-x;
-    z-index: -1;
-    background-size: var(--muralwidth) var(--muralheight);
-    width: 200%;
-    animation: scroll var(--panningspeed) linear infinite;
-    zoom: var(--zoom);
-    filter: grayscale(80%);
+  --muralratio: 3000/555;
+  --panningspeed: 120s;
 
 }
-.overlay1 { /*bg overlay*/
-    width: 50%;
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(60deg,var(--gc3), var(--gc4));
-    pointer-events: none;
-}.overlay2 { /*bg overlay*/
-    /* filter: saturate(); */
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(0deg,var(--gc1), var(--gc2), var(--gc1));
-    pointer-events: none;
+body {
+  display: flex;
+  padding: 20px;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  font-family: "Bebas Neue", sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  justify-content: center; /* horizontal center */
+  align-items: center; /* vertical center */
+}
+.bg {
+  position: fixed;
+  inset: 0%;
+  background-image: url("../assets/murals/dlc-mural-medium-quality.png");
+  background-repeat: repeat-x;
+  z-index: -1;
+  background-size: auto 100vh;
+  animation: scroll var(--panningspeed) linear infinite;
+  filter: grayscale(80%); /* contrast(80%) brightness(.6)*/
+}
+
+.overlay1 {
+  /*bg overlay*/
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(60deg, var(--gc3), var(--gc4));
+  pointer-events: none;
+}
+.overlay2 {
+  /*bg overlay*/
+  /* filter: saturate(); */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, var(--gc1), var(--gc2), var(--gc1));
+  pointer-events: none;
 }
 
 @keyframes scroll {
-  from { background-position-x: var(--muralwidth); }
-  to { background-position-x: 0 }
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: calc(-1 * var(--muralratio) * 100vh);
+  } /* i don't know why this works but it does */
 }
 
-h1 { /* title */
-    text-align: left;
-    color: #f6f6f6;
-}
-.container {
-
-    width: 600px;
-    padding: 20px;
-    background-color: #000000;
-    border: 2px solid rgb(70, 70, 70);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 5);
-}
-
-h3 { /* title */
-    text-align: left;
-    color: #b8b8b8;
+h1 {
+  /* title */
+  text-align: left;
+  color: #f6f6f6;
 }
 .container {
-
-    width: 600px;
-    padding: 20px;
-    background-color: #000000;
-    border: 2px solid rgb(70, 70, 70);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 5);
+  width: 600px;
+  padding: 20px;
+  background-color: #000000;
+  border: 2px solid rgb(70, 70, 70);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 5);
 }
 
-
-input[type="text"] { /*search box*/
-    outline: none;
-    background-color: #111111;
-    color: #ffffff;
-    width: 80%;
-    padding: 10px;
-    margin: 0px 0;
-    font-size: 16px;
-    border: none;
-    transition: background-color 0.2s ease;
-} 
-input[type="text"]:focus { 
-    background-color: #1d1d1d;
+h3 {
+  /* title */
+  text-align: left;
+  color: #b8b8b8;
+}
+.container {
+  width: 600px;
+  padding: 20px;
+  background-color: #000000;
+  border: 2px solid rgb(70, 70, 70);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 5);
 }
 
+input[type="text"] {
+  /*search box*/
+  outline: none;
+  background-color: #111111;
+  color: #ffffff;
+  width: 80%;
+  padding: 10px;
+  margin: 0px 0;
+  font-size: 16px;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+input[type="text"]:focus {
+  background-color: #1d1d1d;
+}
 
 button {
-    padding: 10px 15px;
-    background: linear-gradient(70deg, rgb(0, 98, 255), #0091ff);
-    color: rgb(173, 255, 233);
-    font-size: 16px;
-    font:800;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s ease;
-    margin-left: 2%;
+  padding: 10px 15px;
+  background: linear-gradient(70deg, rgb(0, 98, 255), #0091ff);
+  color: rgb(173, 255, 233);
+  font-size: 16px;
+  font: 800;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+  margin-left: 2%;
 }
 button:hover {
-    background: linear-gradient(70deg, rgb(0, 255, 208), #00ffff);
-    color: rgb(0, 0, 0);
-    transform: scale(1.05);
+  background: linear-gradient(70deg, rgb(0, 255, 208), #00ffff);
+  color: rgb(0, 0, 0);
+  transform: scale(1.05);
 }
 button:active {
-    transition: 0s;
-    transform: scale(.98);
+  transition: 0s;
+  transform: scale(0.98);
 }
 pre {
-    background-color: #0d0d0d;
-    padding: 15px;
-    overflow-x: auto;
+  background-color: #0d0d0d;
+  padding: 15px;
+  overflow-x: auto;
 }
 
 #output {
@@ -142,7 +149,7 @@ pre {
   color: #747474;
   font-family: monospace;
   font-size: 14px;
-  white-space: pre-wrap;   /* wraps long lines */
+  white-space: pre-wrap; /* wraps long lines */
   overflow-x: auto;
   border-radius: 6px;
 }
